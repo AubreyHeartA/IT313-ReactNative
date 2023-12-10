@@ -5,12 +5,13 @@ import {
   PaperProvider,
   MD3LightTheme as DefaultTheme,
 } from "react-native-paper";
-import colors from "./src/config/colors";
+// import colors from "./src/config/colors";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Login from './src/screens/Login';
 import Register from './src/screens/Register';
+import Home from './src/screens/Home';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +31,7 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <StatusBar style="auto" />
         <NavigationContainer>
-          <Stack.Navigator>
+          <Stack.Navigator initialRouteName="Home">
             <Stack.Screen
               options={{ headerShown: false }}
               name="Login"
@@ -38,7 +39,12 @@ export default function App() {
             />
             <Stack.Screen options={{ headerShown: false }}
               name="Register"
-              component={Register} />
+              component={Register} 
+            />
+            <Stack.Screen options={{ headerShown: false }}
+              name="Home"
+              component={Home}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView>

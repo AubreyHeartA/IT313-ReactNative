@@ -41,10 +41,9 @@ export default function LoginForm({ navigation }) {
         password_confirmation: repassword,
       };
 
-
       const result = await fetchServices.postData(url, data);
-
-      if (result?.message != null) {
+      console.debug(data);
+       if (result.message != null) {
         showToast(result?.message);
       } else {
         navigation.navigate("Login");
@@ -81,10 +80,10 @@ export default function LoginForm({ navigation }) {
         mode="outlined"
         placeholder="Password"
         label="Password"
-        secureTextEntry={showPass}
+        secureTextEntry={!showPass}
         right={
           <TextInput.Icon
-            icon={!showPass ? "eye" : "eye-off"}
+            icon={showPass ? "eye" : "eye-off"}
             onPress={() => setShowPass(!showPass)}
           />
         }

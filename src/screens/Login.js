@@ -81,7 +81,6 @@ export default function LoginForm({ navigation }) {
         loading={loading}
         disabled={loading}
         onPress={handleLogin}
-        icon="login"
         mode="contained"
         style={styles.field} >
         Login
